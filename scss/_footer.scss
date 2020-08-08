@@ -1,0 +1,9 @@
+.foot {
+    bottom: 0;
+    & a {
+        color: $brandright;
+        &:hover {
+            color: $brandleft;
+        }
+    }
+}
