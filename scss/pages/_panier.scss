@@ -1,0 +1,6 @@
+.form-group i {
+    margin-right: 2px;
+    background: linear-gradient(to right, $brandleft 0%, $brandright 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

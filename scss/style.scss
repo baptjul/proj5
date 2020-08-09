@@ -1,10 +1,10 @@
-@import "variables.scss";
+@import "./utils/variable_overrides.scss";
+@import "./utils/variables.scss";
 
-@import "header.scss";
-@import "footer.scss";
+@import "./layout/header.scss";
+@import "./layout/footer.scss";
 
-@import "index.scss";
-
-@import "variable_overrides.scss";
+@import "./pages/panier.scss";
+@import "./pages/index.scss";
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

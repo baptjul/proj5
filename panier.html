@@ -43,6 +43,65 @@
         </div>
     </header>
 
+    <div class="container">
+        <section class="row">
+            <div class="col-lg-6">
+                <hr>
+                <h2>Votre panier</h2>
+            </div>
+            <div class="col-lg-6 ml-auto">
+                <hr>
+                <h2>Passez commande</h2>
+                <form>
+                    <div class="form-group mt-3">
+                        <i class="fas fa-user prefix"></i>
+                        <label for="name">Nom* :</label>
+                        <input type="text" class="form-control" id="name" placeholder="Indiquez votre nom"
+                            aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <i class="fas fa-user prefix"></i>
+                        <label for="surname">Prénom* :</label>
+                        <input type="text" class="form-control" id="surname" placeholder="Indiquez votre prénom"
+                            aria-describedby="timeHelp" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <i class="fas fa-envelope prefix"></i>
+                        <label for="email">E-mail* :</label>
+                        <input type="text" class="form-control validate" id="email" min="00000" placeholder="Indiquez votre e-mail"
+                            aria-describedby="timeHelp" required>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6 form-group ">
+                            <i class="fas fa-compass"></i>
+                            <label for="town">Ville* :</label>
+                            <input type="text" class="form-control" id="town" placeholder="Indiquez votre ville"
+                                aria-describedby="timeHelp" required>
+                        </div>
+                        <div class="col-6 form-group ">
+                            <i class="fas fa-compass"></i>
+                            <label for="postal">Code postal* :</label>
+                            <input type="text" class="form-control" id="town" placeholder="Indiquez votre code postal"
+                                aria-describedby="timeHelp" required>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <i class="fas fa-compass"></i>
+                        <label for="adress">Adresse* :</label>
+                        <input type="text" class="form-control" id="adress" placeholder="Indiquez votre adresse"
+                            aria-describedby="timeHelp" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="note">Complément d'adresse :</label>
+                        <textarea id="note" rows="2" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-light mb-5">Envoyer</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
     <footer class="bg-light foot">
         <div class="container ">
             <div class="row mt-5 pt-2 pb-1">
