@@ -44,6 +44,44 @@ h1 {
   align-items: center;
 }
 
+.price {
+  color: #d28040;
+}
+
+@keyframes dots {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.dots {
+  justify-content: center;
+  display: flex;
+}
+.dots__anim {
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 100%;
+  margin-right: 2px;
+  animation: dots 1800ms ease-in-out infinite;
+  animation-direction: alternate;
+}
+.dots__anim--1 {
+  animation-delay: 400ms;
+}
+.dots__anim--2 {
+  animation-delay: 800ms;
+}
+.dots__anim--3 {
+  animation-delay: 1200ms;
+}
+
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

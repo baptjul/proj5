@@ -8,4 +8,37 @@
     align-items: center;
 }
 
+.price {
+    color: $brandleft;
+}
 
+@keyframes dots {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.dots {
+    justify-content: center;
+    display: flex;
+    &__anim {
+        width: 6px;
+        height: 6px;
+        background-color: black;
+        border-radius: 100%;
+        margin-right: 2px;
+        animation: dots 1800ms ease-in-out infinite;
+        animation-direction: alternate;
+        @for $i from 1 through 3 {
+            &--#{$i} {
+                animation-delay: 400ms * $i;
+            }
+        }
+    }
+}
