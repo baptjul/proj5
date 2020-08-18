@@ -17,6 +17,10 @@ h1 {
   color: white;
 }
 
+.align {
+  text-align: right;
+}
+
 .foot {
   bottom: 0;
 }
