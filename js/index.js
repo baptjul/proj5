@@ -1,6 +1,14 @@
-//recuperation des données de l'API
+const apiUrl = "http://localhost:3000/api/cameras"
+
+function urlHash() {
+    if(window.location.href.indexOf("?id=") > -1){
+        parent.location.hash == null
+    } else (parent.location.hash = "accueil")
+}
+
+// Recuperation des données de l'API
 function fetchItems() {
-    fetch('http://localhost:3000/api/cameras')
+    fetch(apiUrl)
         .then(response => response.json())
         // Si des données sont trouvées, on crée une boucle d'affichage
         .then((data) => {
@@ -19,6 +27,8 @@ function fetchItems() {
                 </div>`;
                 });
         })
+        // 
+        .then(urlHash)
         // Si une erreur survient lors du fetch, création d'un message pour l'utilisateur
         .catch(error => {
             document.getElementById("cards").innerHTML =

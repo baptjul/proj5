@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/17089d417a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Orinoco-photo</title>
     <meta name="description" content="">
 
@@ -31,11 +30,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="index.html">Accueil</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="produits.html">Produits</a>
-                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="panier.html"><i class="fas fa-cart-arrow-down"></i>Panier</a>
+                                <a class="nav-link" href="panier.html"><i class="fas fa-cart-arrow-down"></i>Panier <span id="cartNumber"></span></a>
                             </li>
                         </ul>
                     </div>
@@ -45,33 +41,9 @@
     </header>
 
     <section class="container-fluid">
-        <div id="products">
-            <div class="row">
-                <div class="col-lg-8 mb-4">
-                    <img class="card-img-left img-fluid" src="./images/vcam_1.jpg" alt="">
-                </div>
-                <div class="col-lg-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h2 class="card-title my-2">nom</h2>
-                            <h3 class="my-4 price">prix</h3>
-                            <p class="card-text my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente
-                                dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam
-                                sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
-                            <div class="dropdown mt-5">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Nos objectifs
-                                </button>
-                                <div class="dropdown-menu" id="lenseList" aria-labelledby="dropdownMenuButton">
-                                </div>
-                            </div>
-                            <a id="panier" class="btn btn-primary float-right mt-5" role="button"
-                                aria-pressed="true">Ajouter au
-                                panier</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="jumbotron">
+            <div id="products">
+
             </div>
         </div>
     </section>
@@ -95,6 +67,18 @@
         </div>
     </footer>
 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Script suplémentaire -->
+    <script src="./js/produits.js"></script>
 </body>
 
 </html>
