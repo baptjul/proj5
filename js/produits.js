@@ -90,6 +90,7 @@ function itemPage() {
                                     Ce produit a été ajouté au panier.</br>
                                     <p>Vous pouvez maintenant <a href="panier.html" class="alert-info">accéder au panier</a> ou <a href="index.html" class="alert-info">continuez vos achats</a>!
                                 </div>`
+                            window.scrollTo(0, 0);
                         // Si un objectif n'a pas été selectionné, rappel à l'utilisateur de faire un choix
                         } else {
                             popup.innerHTML =
