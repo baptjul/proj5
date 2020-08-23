@@ -29,13 +29,13 @@ async function cartItems() {
             const {name, id, price, image, lenses} = element
             document.getElementById("cart").innerHTML +=
                 ` <div class="row mt-2">
-                    <div class="col-4 ">
+                    <div class="col-5 ">
                         <div class="row">
                             <img class="col-6" src="${image}" alt="product picture">
                             <p class="col-6 align-self-end">${name}</p>
                         </div>
                     </div>
-                    <div class="col-3 align-self-end">
+                    <div class="col-2 align-self-end">
                         <p>${lenses}</p>
                     </div>
                     <div class="col-2 align-self-end" id="price">
@@ -60,3 +60,54 @@ async function cartItems() {
 onload = () => {
     cartItems();
 }
+
+
+function order() {
+    // récuperation des données du formulaire
+    let name = document.getElementById('name').value;
+    let lastName = document.getElementById('lastName').value;
+    let mail = document.getElementById('email').value;
+    let city = document.getElementById('city').value;
+    let postal = document.getElementById('postal').value;
+    let address = document.getElementById('address').value;
+    // regroupement des trois elements d'adresse
+    let fullAddress = {city, postal, address}
+    let note = document.getElementById('note').value;
+    // regroupement de toutes les valeurs
+    let contact = {name, lastName, fullAddress, mail, note}; 
+    
+    // création d'un tableau qui regroupera l'appareille et l'objectif choisie
+    let itemChoice = []
+    let response = localStorage.getItem("cart");
+    let product = JSON.parse(response)
+    product.forEach(element => {
+        let id = element.id
+        let chosenLense = element.lenses
+        let item = {id, chosenLense}
+        itemChoice.push(item)
+    })
+
+    // On regroupe formulaire, produit et prix totale
+    let order = {contact, itemChoice, totalPrice}
+
+    const post = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(order)
+    }
+    fetch('http://localhost:3000/api/cameras', post)
+        .then(response => response.json())
+        .then((data) => {
+            if (itemChoice.length < 1) {
+                document.getElementById("alert").innerHTML =
+                `<div class="alert alert-danger mx-1" role="alert">
+                    <p class="text-center">Le panier est vide ! <a href="index.html" class="alert-info">Veuillez choisir un produit</a></p>
+                </div>`
+            } else {
+                localStorage.setItem("orderComplete")
+                localStorage.clear();   
+            }
+        })
+}
+
+const xhr = new XMLHttpRequest()
