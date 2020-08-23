@@ -6,3 +6,8 @@ function itemNumber() {
     document.getElementById("cartNumber").innerHTML =
             `${numberOfItem}`
     }}
+
+    onload = () => {
+        itemNumber();
+    }
+    

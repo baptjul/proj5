@@ -58,5 +58,4 @@ async function cartItems() {
 
 onload = () => {
     cartItems();
-    itemNumber();
 }
