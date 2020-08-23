@@ -18,6 +18,7 @@ let totalPrice = 0
 async function cartItems() {
     let response = await localStorage.getItem("cart");
     let product = await JSON.parse(response)
+    await itemNumber()
     // Si le panier est vide, un message apparait invitant l'utilisateur a retourner sur la page d'accueil
     if (response == null || product.length < 1) {
         document.getElementById("cart").innerHTML +=

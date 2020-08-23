@@ -10,6 +10,7 @@ function urlHash() {
 function fetchItems() {
     fetch(apiUrl)
         .then(response => response.json())
+        .then(itemNumber())
         // Si des données sont trouvées, on crée une boucle d'affichage
         .then((data) => {
                 data.forEach((element) => {
