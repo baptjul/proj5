@@ -20,14 +20,6 @@ function itemChoice(id) {
     lenseSelected = true
 }
 
-// fonction affichant dans l'header le nombre d'article dans le panier (wip)
-function itemNumber() {
-    let numberOfItem = JSON.parse(localStorage.getItem("cart")).length
-    console.log(numberOfItem)
-    document.getElementById("cartNumber").innerHtml =
-            `<p class="text-light"> ${numberOfItem}</p>`
-    }
-
 //fetch de l'API
 function itemPage() {
     fetch('http://localhost:3000/api/cameras')
