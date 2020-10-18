@@ -5,6 +5,12 @@
   border-radius: 100%;
 }
 
+.page-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 7rem;
+}
+
 header i {
   margin-right: 5px;
   background: linear-gradient(to right, #d28040 0%, #955eeb 100%);
@@ -12,9 +18,10 @@ header i {
   -webkit-text-fill-color: transparent;
 }
 
-h1 {
-  font-family: "lemonada";
-  color: white;
+@media (max-width: 540px) {
+  h1 {
+    font-size: 20px;
+  }
 }
 
 .align {
@@ -22,13 +29,9 @@ h1 {
 }
 
 .foot {
+  position: absolute;
   bottom: 0;
-}
-.foot a {
-  color: #955eeb;
-}
-.foot a:hover {
-  color: #d28040;
+  width: 100%;
 }
 
 .form-group i {
@@ -44,12 +47,20 @@ h1 {
   align-self: center;
 }
 
-.center {
-  align-items: center;
+.home a {
+  display: inline-block;
+  color: #955eeb;
+}
+.home a:hover {
+  color: #d28040;
 }
 
 .price {
   color: #d28040;
+}
+
+.carousel {
+  width: 100%;
 }
 
 @keyframes dots {
@@ -86,6 +97,13 @@ h1 {
   animation-delay: 1200ms;
 }
 
+@media (min-width: 992px) {
+  .card-img-index {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+}
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -625,8 +643,8 @@ pre code {
 .container-md,
 .container-sm {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0px;
+  padding-left: 0px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -4836,7 +4854,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 .jumbotron {
   padding: 20px 10px;
   margin-bottom: 20px;
-  background-color: #ede8ec;
+  background-color: #ede8ec80;
   border-radius: 0.3rem;
 }
 @media (min-width: 576px) {

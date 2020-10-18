@@ -1,15 +1,15 @@
-
+// changement des valeurs de bases de bootstrap
 $primary: #955eeb;
 $dark: black;
 $light: #f3e9f1;
 
-$jumbotron-bg : #ede8ec;
+// couleur du jumbotron
+$jumbotron-bg : #ede8ec80;
 $jumbotron-padding : 20px;
 
+// forme navigation du carrousel
 .carousel .carousel-indicators li {
     width: 15px;
     height: 15px;
     border-radius: 100%;
  }
-
-

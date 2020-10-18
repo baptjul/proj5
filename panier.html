@@ -10,127 +10,118 @@
     <title>Orinoco-photo</title>
     <meta name="description" content="">
 
-    <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet"> -->
 </head>
 
 <body>
-    <header class="bg-dark font-weight-bold">
-        <div class="container">
-            <div class="row mb-3 py-2 navi">
-                <nav class="col navbar navbar-expand-lg navbar-dark">
-                    <a class="navbar-brand" href="index.html">
-                        <h1><i class="fas fa-shopping-cart"></i>Orinoco-photo</h1>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div id="navbarContent" class="collapse navbar-collapse">
-                        <ul class="navbar-nav ml-auto ">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Accueil</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="panier.html"><i class="fas fa-cart-arrow-down"></i>Panier <span id="cartNumber"></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <div class="page-container">
 
-    <section class="container">
-        <div id="alert">
-        </div>
-        <div class="row">
-            <!-- panier -->
-            <div class="col-lg-7">
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <h2>Votre panier</h2>
-                    <h2 class="mr-4" id="total">
-
-                    </h2>
-                </div>
-                <hr>
-                <div class="jumbotron">
-                    <div id="cart">
-
-                    </div>
+        <header class="bg-dark font-weight-bold">
+            <div class="container">
+                <div class="row mb-3 py-2 navi">
+                    <nav class="col-12 navbar navbar-expand-lg navbar-dark">
+                        <a class="navbar-brand" href="index.html" id="title">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarContent">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="navbarContent" class="collapse navbar-collapse">
+                            <ul class="navbar-nav ml-auto ">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Accueil</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="panier.html"><i class="fas fa-cart-arrow-down"></i>Panier
+                                        <span id="cartNumber"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
-            <!-- form -->
-            <div class="col-lg-5 ml-auto">
-                <hr>
-                <h2>Passez commande</h2>
-                <form onsubmit="order()">
-                    <div class="form-group mt-3">
-                        <i class="fas fa-user prefix"></i>
-                        <label for="lastName">Nom* :</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Indiquez votre nom"
-                            aria-describedby="emailHelp" required>
+        </header>
+
+        <section class="container">
+            <div id="alert">
+            </div>
+            <div class="row">
+                <!-- panier -->
+                <div class="col-lg-7">
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <h2>Votre panier</h2>
+                        <h2 class="mr-sm-4" id="total"></h2>
                     </div>
-                    <div class="form-group mt-3">
-                        <i class="fas fa-user prefix"></i>
-                        <label for="name">Prénom* :</label>
-                        <input type="text" class="form-control" id="name" placeholder="Indiquez votre prénom"
-                            aria-describedby="timeHelp" required>
+                    <hr>
+                    <div class="jumbotron border border-primary">
+                        <div id="cart">
+
+                        </div>
                     </div>
-                    <div class="form-group mt-3">
-                        <i class="fas fa-envelope prefix"></i>
-                        <label for="email">E-mail* :</label>
-                        <input type="text" class="form-control validate" id="email" min="00000"
-                            placeholder="Indiquez votre e-mail" aria-describedby="timeHelp" required>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6 form-group ">
+                </div>
+                <!-- form -->
+                <div class="col-lg-5 ml-auto">
+                    <hr>
+                    <h2>Passez commande</h2>
+                    <form onsubmit="order(this)" id="form">
+                        <div class="form-group mt-3">
+                            <i class="fas fa-user prefix"></i>
+                            <label for="firstName">Prénom* :</label>
+                            <input type="text" name="firstName" class="form-control" id="firstName"
+                                placeholder="Indiquez votre nom" aria-describedby="formInfo" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <i class="fas fa-user prefix"></i>
+                            <label for="lastName">Nom* :</label>
+                            <input type="text" name="lastName" class="form-control" id="lastName"
+                                placeholder="Indiquez votre prénom" aria-describedby="formInfo" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <i class="fas fa-compass"></i>
+                            <label for="address">Adresse* :</label>
+                            <input type="text" name="address" class="form-control" id="address"
+                                placeholder="Indiquez votre adresse" aria-describedby="formInfo" required>
+                        </div>
+                        <div class="form-group mt-3">
                             <i class="fas fa-compass"></i>
                             <label for="city">Ville* :</label>
-                            <input type="text" class="form-control" id="city" placeholder="Indiquez votre ville"
-                                aria-describedby="timeHelp" required>
+                            <input type="text" name="city" class="form-control" id="city"
+                                placeholder="Indiquez votre ville" aria-describedby="formInfo" required>
                         </div>
-                        <div class="col-6 form-group ">
-                            <i class="fas fa-compass"></i>
-                            <label for="postal">Code postal* :</label>
-                            <input type="text" class="form-control" id="postal" placeholder="Indiquez votre code postal"
-                                aria-describedby="timeHelp" required>
+                        <div class="form-group mt-3">
+                            <i class="fas fa-envelope prefix"></i>
+                            <label for="email">E-mail* :</label>
+                            <input type="text" name="email" class="form-control validate" id="email"
+                                placeholder="Indiquez votre e-mail" aria-describedby="formInfo" required>
                         </div>
-                    </div>
-                    <div class="form-group mt-2">
-                        <i class="fas fa-compass"></i>
-                        <label for="address">Adresse* :</label>
-                        <input type="text" class="form-control" id="address" placeholder="Indiquez votre adresse"
-                            aria-describedby="timeHelp" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label for="note">Complément d'adresse :</label>
-                        <textarea id="note" rows="2" class="form-control"></textarea>
-                    </div>
 
-                    <button type="submit" class="btn btn-light mb-5">Envoyer</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-light foot">
-        <div class="container ">
-            <div class="row mt-5 pt-2 pb-1">
-                <div class="col text-center">
-                    <a href="index.html"><img class="logo" src="./images/logo.png" alt="logo"></a></br>
-                    <ul class="list-inline font-weight-bold">
-                        <li class="list-inline-item"><a href="#">À propos</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a href="#">SAV</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a href="#">Livraisons</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a href="#">Conditions d'utilisations</a></li>
-                    </ul>
+                        <button type="submit" class="btn btn-light mb-5">Envoyer</button>
+                    </form>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <footer class="bg-light foot">
+            <div class="container ">
+                <div class="row pt-2 pb-1">
+                    <div class="col text-center">
+                        <a href="index.html"><img class="logo" src="./images/logo.png" alt="logo"></a></br>
+                        <ul class="list-inline font-weight-bold">
+                            <li class="list-inline-item"><a href="#">À propos</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a href="#">SAV</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a href="#">Livraisons</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a href="#">Conditions d'utilisations</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -143,8 +134,13 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <!-- Script suplémentaire -->
-    <script src="./js/all.js"></script>
-    <script src="./js/panier.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/render/cartAlert.js"></script>
+    <script src="./js/render/alerte.js"></script>
+    <script src="./js/render/priceDisplay.js"></script>
+    <script src="./js/render/cartDisplay.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/post.js"></script>
 </body>
 
 </html>

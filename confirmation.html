@@ -13,12 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="min-vw-100">
     <div class="page-container">
-
+        
         <header class="bg-dark font-weight-bold">
             <div class="container">
-                <div class="row mb-3 py-2 navi">
+                <div class="row py-2 navi">
                     <nav class="col-12 navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand" href="index.html" id="title">
                         </a>
@@ -28,7 +28,7 @@
                         </button>
                         <div id="navbarContent" class="collapse navbar-collapse">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a class="nav-link" href="index.html">Accueil</a>
                                 </li>
                                 <li class="nav-item">
@@ -42,9 +42,10 @@
             </div>
         </header>
 
-        <section class="container-fluid">
+
+        <section class="container mt-4">
             <div class="jumbotron">
-                <div id="products">
+                <div class="row" id="checkout">
 
                 </div>
             </div>
@@ -83,11 +84,8 @@
         crossorigin="anonymous"></script>
     <!-- Script suplémentaire -->
     <script src="./js/index.js"></script>
-    <script src="./js/render/product.js"></script>
-    <script src="./js/render/list.js"></script>
-    <script src="./js/render/alertAdd.js"></script>
-    <script src="./js/products.js"></script>
-    <script src="./js/fetch.js"></script>
+    <script src="./js/checkout.js"></script>
+
 </body>
 
 </html>

@@ -1,9 +1,5 @@
 .foot {
+    position: absolute;
     bottom: 0;
-    & a {
-        color: $brandright;
-        &:hover {
-            color: $brandleft;
-        }
-    }
+    width: 100%;
 }

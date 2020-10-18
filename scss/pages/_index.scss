@@ -4,13 +4,21 @@
     align-self: center;
 }
 
-.center {
-    align-items: center;
+.home a{
+    display: inline-block;
+    color: $brandright;
+        &:hover {
+            color: $brandleft;
+        }
 }
 
 .price {
     color: $brandleft;
 }
+
+.carousel {
+    width:100%;
+  }
 
 @keyframes dots {
     0% {
@@ -40,5 +48,13 @@
                 animation-delay: 400ms * $i;
             }
         }
+    }
+}
+
+@media (min-width: 992px) {
+    .card-img-index {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
     }
 }

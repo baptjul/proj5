@@ -6,8 +6,10 @@ header i {
 }
 
 h1 {
-    font-family: 'lemonada';
-    color: white;
+    //font-family: 'lemonada';
+    @media (max-width: 540px) {
+        font-size: 20px;
+    }
 }
 
 .align {
