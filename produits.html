@@ -92,7 +92,6 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const selectId = urlParams.get('id');
-        console.log(selectId);
         fetchOne(selectId).then((data) => {
             productPage(data)
         })

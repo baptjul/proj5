@@ -3,7 +3,6 @@ function order(form) {
     event.preventDefault();
     // Récupération des données du formulaire
     let formData = new FormData(form);
-    console.log(formData)
 
     // création de l'objet de contact et du tableau de produit
     let itemPrice = JSON.parse(localStorage.getItem("price"))
@@ -28,7 +27,7 @@ function order(form) {
             itemChoice.push(product.id)
         })
     }
-
+    console.log(contact)
     // création de l'objet à envoyer
     const orderInfo = new Command(contact, itemChoice)
 

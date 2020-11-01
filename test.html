@@ -11,6 +11,45 @@
     <meta name="description" content="">
 </head>
 
+<body>
+<div class="page-container">
+
+    <header class="bg-dark font-weight-bold">
+        <div class="container">
+            <div class="row py-2 navi">
+                <nav class="col-12 navbar navbar-expand-lg navbar-dark">
+                    <a class="navbar-brand" href="index.html" id="title">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="navbarContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="panier.html"><i class="fas fa-cart-arrow-down"></i>Panier
+                                    <span class="text-light" id="cartNumber"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <p>vous êtes sur une page de test</p><br>
+        <div id="result"></div>
+        <a class="nav-link" href="index.html">Retour sur le site</a>
+
+        
+    </section>
+
+</div>
+</body>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -23,7 +62,13 @@ crossorigin="anonymous"></script>
 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 crossorigin="anonymous"></script>
 <!-- Script suplémentaire -->
-<script type="module" src="./js/test.js"></script>
+<!-- <script type="module" src="./js/test.js"></script> -->
+<script src="./js/index.js"></script>
+<script src="./js/productPage.js"></script>
+<script src="./js/fetch.js"></script>
+<script src="./js/order.js"></script>
+<script src="./js/postResponse.js"></script>
+<script src="./js/test.js"></script>
 <script>
 
 testCartSet();
@@ -35,7 +80,8 @@ testPostItem();
 testFetchCollection();
 testFetchOne();
 testPostResponse();
-testOrder()
+testOrder();
+validateTest()
 
 </script>
 </html>

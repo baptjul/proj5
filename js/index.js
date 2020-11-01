@@ -44,7 +44,7 @@ class Cart {
         // Renvoie de la nouvelle liste
         localStorage.setItem(this.localStorageName, JSON.stringify(data))
         // et rechargement de la page pour actualiser affichage et prix
-        cartPage();
+        //cartPage();
     }
 }
 
