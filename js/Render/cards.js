@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Card {
+class Cards {
 
     constructor() {
         this.dom = document.getElementById("cards");
@@ -23,3 +23,5 @@ class Card {
             </div>`;
     }
 }
+
+//onclick="localStorage.setItem('id', JSON.stringify(${object._id}))"

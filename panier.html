@@ -8,9 +8,9 @@
     <script src="https://kit.fontawesome.com/17089d417a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <title>Orinoco-photo</title>
-    <meta name="description" content="">
+    <meta name="description" content="Votre site e-comerce d'achat de produit vintage">
 
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
             </div>
         </header>
 
-        <section class="container">
+        <section class="container px-2">
             <div id="alert">
             </div>
             <div class="row">
@@ -64,36 +64,36 @@
                 <div class="col-lg-5 ml-auto">
                     <hr>
                     <h2>Passez commande</h2>
-                    <form onsubmit="order(this)" id="form">
+                    <form onsubmit="alertDisplay(order(this))" id="form">
                         <div class="form-group mt-3">
                             <i class="fas fa-user prefix"></i>
                             <label for="firstName">Prénom* :</label>
                             <input type="text" name="firstName" class="form-control" id="firstName"
-                                placeholder="Indiquez votre nom" aria-describedby="formInfo" required>
+                                placeholder="Indiquez votre nom" required>
                         </div>
                         <div class="form-group mt-3">
                             <i class="fas fa-user prefix"></i>
                             <label for="lastName">Nom* :</label>
                             <input type="text" name="lastName" class="form-control" id="lastName"
-                                placeholder="Indiquez votre prénom" aria-describedby="formInfo" required>
+                                placeholder="Indiquez votre prénom" required>
                         </div>
                         <div class="form-group mt-3">
                             <i class="fas fa-compass"></i>
                             <label for="address">Adresse* :</label>
                             <input type="text" name="address" class="form-control" id="address"
-                                placeholder="Indiquez votre adresse" aria-describedby="formInfo" required>
+                                placeholder="Indiquez votre adresse" required>
                         </div>
                         <div class="form-group mt-3">
                             <i class="fas fa-compass"></i>
                             <label for="city">Ville* :</label>
                             <input type="text" name="city" class="form-control" id="city"
-                                placeholder="Indiquez votre ville" aria-describedby="formInfo" required>
+                                placeholder="Indiquez votre ville" required>
                         </div>
                         <div class="form-group mt-3">
                             <i class="fas fa-envelope prefix"></i>
                             <label for="email">E-mail* :</label>
                             <input type="text" name="email" class="form-control validate" id="email"
-                                placeholder="Indiquez votre e-mail" aria-describedby="formInfo" required>
+                                placeholder="Indiquez votre e-mail" required>
                         </div>
 
                         <button type="submit" class="btn btn-light mb-5">Envoyer</button>
@@ -106,7 +106,7 @@
             <div class="container ">
                 <div class="row pt-2 pb-1">
                     <div class="col text-center">
-                        <a href="index.html"><img class="logo" src="./images/logo.png" alt="logo"></a></br>
+                        <a href="index.html"><img class="logo" src="./images/logo.png" alt="logo"></a><br />
                         <ul class="list-inline font-weight-bold">
                             <li class="list-inline-item"><a href="#">À propos</a></li>
                             <li class="list-inline-item">&middot;</li>
@@ -139,8 +139,15 @@
     <script src="./js/render/alerte.js"></script>
     <script src="./js/render/priceDisplay.js"></script>
     <script src="./js/render/cartDisplay.js"></script>
-    <script src="./js/cart.js"></script>
-    <script src="./js/post.js"></script>
+    <script src="./js/cartPage.js"></script>
+    <script src="./js/order.js"></script>
+    <script src="./js/alertDisplay.js"></script>
+    <script src="./js/postResponse.js"></script>
+    <script>
+        cartPage();
+        cartNumber();
+    </script>
+
 </body>
 
 </html>

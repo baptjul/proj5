@@ -5,9 +5,11 @@
 class App {
     // construction de l'API a récupérer
     constructor(options) {
-        this.apiUrl  = options.apiUrl;
+        this.apiUrl = options.apiUrl;
         this.collectionApi = this.apiUrl + options.collectionApi;
         this.postApi = this.apiUrl + options.collectionApi + options.postApi;
+
+        options.titleElement.innerHTML = options.titleNameHTML;
     }
 }
 
@@ -42,15 +44,33 @@ class Cart {
         // Renvoie de la nouvelle liste
         localStorage.setItem(this.localStorageName, JSON.stringify(data))
         // et rechargement de la page pour actualiser affichage et prix
-        window.location.reload();
+        cartPage();
     }
 }
+
+/*let SetOak = new App({
+    apiUrl: 'http://localhost:3000/',
+    collectionApi: 'api/furniture',
+    postApi: `/order`,
+    titleElement : document.getElementById("title"),
+    titleNameHTML: '<h1><i class="fas fa-shopping-cart"></i>Orinoco-Oak</h1>'
+});
+
+let SetTeddies = new App({
+    apiUrl: 'http://localhost:3000/',
+    collectionApi: 'api/teddies',
+    postApi: `/order`,
+    titleElement : document.getElementById("title"),
+    titleNameHTML: '<h1><i class="fas fa-shopping-cart"></i>Orinoco-Teddies</h1>'
+});*/
 
 // constante qui défini l'api utilisé
 let AppSet = new App({
     apiUrl: 'http://localhost:3000/',
     collectionApi: 'api/cameras',
-    postApi: `/order`
+    postApi: `/order`,
+    titleElement: document.getElementById("title"),
+    titleNameHTML: '<h1><i class="fas fa-shopping-cart"></i>Orinoco-photo</h1>'
 });
 
 // constante qui constituera  notre panier
@@ -84,29 +104,6 @@ class checkOut {
     }
 }
 
-
-// --> Adaptation du titre du selon l'api utilisé (peut être utiliser seulement pour la présentation)
-let titleName = document.getElementById("title")
-if (AppSet.collectionApi.indexOf("cameras") > 1) {
-    titleName.innerHTML = `
-    <h1><i class="fas fa-shopping-cart"></i>Orinoco-photo</h1>`
-} if (AppSet.collectionApi.indexOf("teddies") > 1) {
-    titleName.innerHTML = `
-    <h1><i class="fas fa-shopping-cart"></i>Orinoco-teddy</h1>`
-} if (AppSet.collectionApi.indexOf("furniture") > 1) {
-    titleName.innerHTML = `
-    <h1><i class="fas fa-shopping-cart"></i>Orinoco-oak</h1>`
-};
-
-// --> fonction d'ajout d'un hash "accueil" ...
-function urlHash() {
-    // si la page index ne display pas un produit
-    if (window.location.href.indexOf("?id=") > -1) {
-        parent.location.hash == null
-    } else (parent.location.hash = "accueil")
-};
-
-
 // --> fonction affichant dans l'header le nombre d'article dans le panier
 function cartNumber() {
     // l'affichage rend pour valeur le nombre d'élément dans le panier
@@ -117,8 +114,6 @@ function cartNumber() {
 
 // --> fonction d'affichage du prix total du panier
 function cartTotal(element) {
-    // ajout de l'HTML
-    let cartPrice = new PriceDisplay
     // prix initial du panier
     let totalPrice = 0
     // le prix de chaque produit selectionné est ajouté
@@ -127,16 +122,13 @@ function cartTotal(element) {
         if (price == null) { price = 0 }
         totalPrice += price
     })
-    if (totalPrice !== 0 ) {
-        // et le total est stocké et affiché 
-        cartPrice.render(totalPrice)
-        localStorage.setItem("price", JSON.stringify(totalPrice))
-    }
+
+    localStorage.setItem("price", JSON.stringify(totalPrice))
+    return totalPrice
 };
 
-
 // --> Création d'une fonction pour envoyer la commande à l'api (requiert un URL et l'objet à envoyer)
-async function postItem(url, object, price) {
+async function postItem(url, object) {
     // fetch de l'api avec la methode POST
     let response = await fetch(url, {
         method: 'POST',
@@ -146,26 +138,9 @@ async function postItem(url, object, price) {
         // Avec pour retour le contenu de l'objet
         body: JSON.stringify(object)
     })
-    // Attente de la réponse de l'API
-    let data = await response.json()
-    // Preparation de l'affichage HTML
-    let cartAlert = new CartAlert()
-    // En cas de réponse positive
     if (response.ok) {
-        // Vide le panier actuel
-        localStorage.clear("cart")
-        // Récupération des données renvoyées par l'API
-        let checkoutInfo = new checkOut(data.orderId, price, object.contact.email)
-        localStorage.setItem("result", JSON.stringify(checkoutInfo))
-
-        // Message indiquant que l'utilisateur va être redirigé vers une autre page
-        cartAlert.render(true)
-        // Redirection après délai
-        setTimeout(() => { window.location.href = "confirmation.html"; }, 3000);
-
-    // En cas de réponse négative
-    } else {
-        window.scrollTo(0, 0);
-        // message d'alerte 
-        cartAlert.render(false)}
+        // Attente de la réponse de l'API
+        let data = await response.json()
+        return data;
+    }
 };

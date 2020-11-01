@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/17089d417a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <title>Orinoco-photo</title>
-    <meta name="description" content="">
+    <meta name="description" content="Votre site e-comerce d'achat de produit vintage">
     <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet">
 </head>
 
@@ -55,7 +55,8 @@
                             <div class="carousel-inner">
                                 <div class="carousel-inner" id="apiSelection">
                                     <div class="carousel-item active">
-                                        <img src="./images/carou/vcam.jpg" class="d-block img-fluid" alt="Orinoco-photo">
+                                        <img src="./images/carou/vcam.jpg" class="d-block img-fluid"
+                                            alt="Orinoco-photo">
                                         <div class="carousel-caption">
                                             <h3>Orinoco-photo</h3>
                                         </div>
@@ -67,7 +68,8 @@
                                         </div>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="./images/carou/teddy.jpg" class="d-block img-fluid" alt="Orinoco-teddy">
+                                        <img src="./images/carou/teddy.jpg" class="d-block img-fluid"
+                                            alt="Orinoco-teddy">
                                         <div class="carousel-caption">
                                             <h3>Orinoco-teddy</h3>
                                         </div>
@@ -94,7 +96,7 @@
             <div class="container ">
                 <div class="row pt-2 pb-1">
                     <div class="col text-center">
-                        <a href="index.html"><img class="logo" src="./images/logo.png" alt="logo"></a></br>
+                        <a href="index.html"><img class="logo" src="./images/logo.png" alt="logo"></a><br/>
                         <ul class="list-inline font-weight-bold">
                             <li class="list-inline-item"><a href="#">À propos</a></li>
                             <li class="list-inline-item">&middot;</li>
@@ -124,7 +126,17 @@
     <!-- Script suplémentaire -->
     <script src="./js/index.js"></script>
     <script src="./js/render/cards.js"></script>
+    <script src="./js/render/fetchError.js"></script>
     <script src="./js/fetch.js"></script>
+    <script>
+        fetchCollection().then((data) => {
+            let card = new Cards();
+            data.forEach(product => {
+                card.render(product)
+            })
+        });
+        cartNumber();
+    </script>
     <script>$('.carousel').carousel({ interval: 3000, pause: false })</script>
 </body>
 

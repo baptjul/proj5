@@ -9,7 +9,11 @@ class PriceDisplay {
     }
 
     render(price) {
-        this.dom.innerHTML +=
+        if (price !== undefined) {
+        this.dom.innerHTML =
         `<p>total = <strong>${price}€</strong><p>`
+        }else {
+            this.dom.innerHTML = ``;
+        }
 }
 }

@@ -1,12 +1,9 @@
-let buyingAlert = document.getElementById("alert");
-//let formContent = document.getElementById("form");
-
-// fonction d'envoie de commande
 function order(form) {
     // desactivation de l'action par défault d'envoie du formulaire
     event.preventDefault();
     // Récupération des données du formulaire
     let formData = new FormData(form);
+    console.log(formData)
 
     // création de l'objet de contact et du tableau de produit
     let itemPrice = JSON.parse(localStorage.getItem("price"))
@@ -31,26 +28,25 @@ function order(form) {
             itemChoice.push(product.id)
         })
     }
+
     // création de l'objet à envoyer
     const orderInfo = new Command(contact, itemChoice)
 
     // Si aucun produit ne figure dans le panier
-    if (products == null || products.length < 0) {
-        // un meassage d'alerte apparait
-        window.scrollTo(0, 0);
-
-        let alerte = new Alerte();
-        alerte.render('Veuillez selectionner un produit')
-
-        }
-    // Si un produit figure bien dans la commande
-    else {
-        // Envoir de l'objet à l'API, methode POST et redirection
-        postItem(AppSet.postApi, orderInfo, itemPrice)
+    if (itemPrice === 0) {
+        // Renvoie indéfini
+        return undefined
+    }// Si un produit figure bien dans la commande
+    else {// Envoir de l'objet à l'API
+        postItem(AppSet.postApi, orderInfo).then(data => {
+            // Récuperation de l'id renvoyé
+            let returnedid = data.orderId
+            // Traitement des informations recu 
+            postResponse(returnedid, itemPrice, orderInfo)
+        })
         // Le contenue du formulaire est réinitialisé
         form.reset()
-        // Retour en haut de la page pour diriger l'utilisateur vers un message
-        window.scrollTo(0, 0);
-        
+        // Retourne vrai
+        return true;
     }
 }
