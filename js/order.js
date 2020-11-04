@@ -3,12 +3,8 @@ function order(form) {
     event.preventDefault();
     // Récupération des données du formulaire
     let formData = new FormData(form);
-
     // création de l'objet de contact et du tableau de produit
-    let itemPrice = JSON.parse(localStorage.getItem("price"))
-    let itemChoice = [];
     let contact = {};
-
     // récupération des données du formulaires par leur nom
     for (var entry of formData) {
         // nom du label ...
@@ -17,35 +13,9 @@ function order(form) {
         let value = entry[1];
         contact[key] = value
     }
-
     // récupération des données du panier
     let products = CartSet.getCart()
-    if (products == null) {
-        itemChoice = []
-    } else {
-        products.forEach(product => {
-            itemChoice.push(product.id)
-        })
-    }
-    console.log(contact)
-    // création de l'objet à envoyer
-    const orderInfo = new Command(contact, itemChoice)
-
-    // Si aucun produit ne figure dans le panier
-    if (itemPrice === 0) {
-        // Renvoie indéfini
-        return undefined
-    }// Si un produit figure bien dans la commande
-    else {// Envoir de l'objet à l'API
-        postItem(AppSet.postApi, orderInfo).then(data => {
-            // Récuperation de l'id renvoyé
-            let returnedid = data.orderId
-            // Traitement des informations recu 
-            postResponse(returnedid, itemPrice, orderInfo)
-        })
-        // Le contenue du formulaire est réinitialisé
-        form.reset()
-        // Retourne vrai
-        return true;
-    }
+    // Traitement de la commande (renvoie vrai ou faux)
+    return postCommand(contact, products)
+    
 }

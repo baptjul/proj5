@@ -1,7 +1,3 @@
-// 'http://localhost:3000/api/furniture'
-// 'http://localhost:3000/api/teddies'
-// 'http://localhost:3000/api/cameras'
-
 class App {
     // construction de l'API a récupérer
     constructor(options) {
@@ -43,12 +39,17 @@ class Cart {
         data = data.filter(element => element.uniqId !== uniqId)
         // Renvoie de la nouvelle liste
         localStorage.setItem(this.localStorageName, JSON.stringify(data))
-        // et rechargement de la page pour actualiser affichage et prix
-        //cartPage();
+    }
+
+    clear() {
+        localStorage.clear(this.localStorageName)
     }
 }
 
-/*let SetOak = new App({
+// constante qui défini l'api utilisé
+/*
+// pour le site avec les meubles
+let AppSet = new App({
     apiUrl: 'http://localhost:3000/',
     collectionApi: 'api/furniture',
     postApi: `/order`,
@@ -56,7 +57,8 @@ class Cart {
     titleNameHTML: '<h1><i class="fas fa-shopping-cart"></i>Orinoco-Oak</h1>'
 });
 
-let SetTeddies = new App({
+// pour le site avec les peluches
+let AppSet = new App({
     apiUrl: 'http://localhost:3000/',
     collectionApi: 'api/teddies',
     postApi: `/order`,
@@ -64,7 +66,7 @@ let SetTeddies = new App({
     titleNameHTML: '<h1><i class="fas fa-shopping-cart"></i>Orinoco-Teddies</h1>'
 });*/
 
-// constante qui défini l'api utilisé
+// Pour le site avec les appareils photos
 let AppSet = new App({
     apiUrl: 'http://localhost:3000/',
     collectionApi: 'api/cameras',
@@ -75,6 +77,8 @@ let AppSet = new App({
 
 // constante qui constituera  notre panier
 const CartSet = new Cart('cart');
+
+const ResultSet = new Cart('result')
 
 // création de classe qui contiendra le produit selectionné par l'utilisateur
 class Item {
@@ -113,17 +117,15 @@ function cartNumber() {
 
 
 // --> fonction d'affichage du prix total du panier
-function cartTotal(element) {
+function cartTotal(products) {
     // prix initial du panier
     let totalPrice = 0
     // le prix de chaque produit selectionné est ajouté
-    element.forEach(product => {
+    products.forEach(product => {
         let price = product.price
         if (price == null) { price = 0 }
         totalPrice += price
     })
-
-    localStorage.setItem("price", JSON.stringify(totalPrice))
     return totalPrice
 };
 
@@ -143,4 +145,5 @@ async function postItem(url, object) {
         let data = await response.json()
         return data;
     }
+    return undefined
 };

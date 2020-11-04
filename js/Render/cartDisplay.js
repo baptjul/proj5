@@ -33,7 +33,7 @@ class CartDisplay {
                     <p>${object.price} €</p>
                 </div>
                 <div class="col-2 align-self-center">
-                    <button type="button" onclick="CartSet.deleteItem('${object.uniqId}'); cartPage();" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    <button type="button" onclick="CartSet.deleteItem('${object.uniqId}'); cartPage(); cartNumber()" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>`;
         } else {

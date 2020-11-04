@@ -23,5 +23,3 @@ class Cards {
             </div>`;
     }
 }
-
-//onclick="localStorage.setItem('id', JSON.stringify(${object._id}))"
