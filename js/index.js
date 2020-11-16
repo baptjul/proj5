@@ -1,51 +1,3 @@
-class App {
-    // construction de l'API a récupérer
-    constructor(options) {
-        this.apiUrl = options.apiUrl;
-        this.collectionApi = this.apiUrl + options.collectionApi;
-        this.postApi = this.apiUrl + options.collectionApi + options.postApi;
-
-        options.titleElement.innerHTML = options.titleNameHTML;
-    }
-}
-
-class Cart {
-    // Création d'un localstorage qui nous servira de panier
-    constructor(localStorageName) {
-        this.localStorageName = localStorageName
-    }
-
-    // fonction nous permettant de récupérer le panier
-    getCart() {
-        return JSON.parse(localStorage.getItem(this.localStorageName)) || [];
-    }
-
-    // fonction nous permettant d'ajouter un objet au panier
-    addItem(object) {
-        // Récupération du tableau/panier
-        let data = this.getCart();
-        // ajout d'un id unique a l'élément selectionné
-        object.uniqId = 'id' + (new Date()).getTime();
-        // ajout de l'élement au tableau/panier
-        data.push(object)
-        // conservation des informations
-        localStorage.setItem(this.localStorageName, JSON.stringify(data))
-    }
-
-    deleteItem(uniqId) {
-        // Récupération du tableau/panier
-        let data = this.getCart();
-        // suppression de l'element grace a son id unique
-        data = data.filter(element => element.uniqId !== uniqId)
-        // Renvoie de la nouvelle liste
-        localStorage.setItem(this.localStorageName, JSON.stringify(data))
-    }
-
-    clear() {
-        localStorage.clear(this.localStorageName)
-    }
-}
-
 // constante qui défini l'api utilisé
 /*
 // pour le site avec les meubles
@@ -77,36 +29,9 @@ let AppSet = new App({
 
 // constante qui constituera  notre panier
 const CartSet = new Cart('cart');
-
+// constante qui conservera les informations renvoyé par l'API apres POST
 const ResultSet = new Cart('result')
 
-// création de classe qui contiendra le produit selectionné par l'utilisateur
-class Item {
-    constructor(_id, name, price, imageUrl, itemChoice) {
-        this.id = _id
-        this.name = name
-        this.price = price
-        this.imageUrl = imageUrl
-        this.itemChoice = itemChoice
-    }
-}
-
-// création d'une classe qui prendra les éléments à envoyer en POST
-class Command {
-    constructor(contact, id) {
-        this.contact = contact
-        this.products = id
-    }
-}
-
-// création d'une classe regroupant les informations a afficher lors de la confirmation
-class checkOut {
-    constructor(id, price, email) {
-        this.id = id
-        this.price = price
-        this.email = email
-    }
-}
 
 // --> fonction affichant dans l'header le nombre d'article dans le panier
 function cartNumber() {

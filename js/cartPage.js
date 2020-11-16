@@ -22,6 +22,6 @@ function cartPage() {
     if (price !== 0) {
         // Affichage du prix
         cartPrice.render(price)
-    // Sinon emplacement reste vide
+        // Sinon emplacement reste vide
     } else { cartPrice.render() }
 }

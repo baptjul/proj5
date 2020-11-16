@@ -29,7 +29,7 @@ function productPage(data) {
         let list = new ListItem();
         list.render(productChoice, values);
     }
-    
+
     // addEventListener sur le bouton 'Ajouter au panier' on click
     document.getElementById("panier").addEventListener('click', function () {
         let activeElement = document.querySelector("button.list-group-item-action.active")

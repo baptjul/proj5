@@ -1,5 +1,6 @@
 
 function allTest() {
+    console.log("test start")
     // test index
     function testCartSet() {
         CartSet.clear()
@@ -16,7 +17,7 @@ function allTest() {
         CartSet.clear()
         let firstProduct = new Item("id1", "nomObjet1", 10, "image", "couleur1")
         CartSet.addItem(firstProduct)
-        if (CartSet.getCart().length === 1) {
+        if (CartSet.getCart().length !== 0) {
             console.log("the function addItem is working")
             return true
         }
@@ -30,7 +31,7 @@ function allTest() {
         CartSet.addItem(firstProduct)
         let prodId = CartSet.getCart()[0].uniqId
         CartSet.deleteItem(prodId)
-        if (CartSet.getCart().length < 1) {
+        if (CartSet.getCart().length === 0) {
             console.log("the function deleteItem is working")
             return true
         }
@@ -56,7 +57,8 @@ function allTest() {
         let secondProduct = new Item("id2", "nomObjet2", 20, "image", "couleur2")
         CartSet.addItem(firstProduct)
         CartSet.addItem(secondProduct)
-        if (CartSet.getCart().length === 2) {
+        let total = CartSet.getCart().length
+        if (total === 2) {
             console.log("the function cartNumber is working")
             return true
         }
@@ -65,10 +67,9 @@ function allTest() {
     };
 
     function testPostItem() {
-        let postApi = 'http://localhost:3000/api/cameras/order'
         let user = { firstName: "Prénom", lastName: "Nom", address: "Adresse", city: "Ville", email: "email@mail.com" }
         const orderInfo = new Command(user, ['5be1ed3f1c9d44000030b061'])
-        postItem(postApi, orderInfo).then(data => {
+        postItem(AppSet.postApi, orderInfo).then(data => {
             let returnedid = data.orderId
             if (returnedid !== null || undefined) {
                 console.log("the function PostItem is working")
@@ -87,7 +88,7 @@ function allTest() {
             data.forEach(item => {
                 collectedId.push(item._id)
             })
-            if (collectedId.length >= 1) {
+            if (collectedId.length !== 0) {
                 console.log("the function fetchCollection is working")
                 return true
             }
@@ -104,7 +105,7 @@ function allTest() {
             for (let values in productChoice) {
                 item = values[0]
             }
-            const { name, _id, price, description, imageUrl } = data
+            const { name, _id, price, imageUrl } = data
             let productchoice = new Item(_id, name, price / 100, imageUrl, item)
             if (productchoice !== null || undefined) {
                 console.log("the function fetchOne and productPage are working")
@@ -135,15 +136,18 @@ function allTest() {
 
 
     // lancement des tests et verification qu'il ne sont pas faux
-    // certaines fonctions sont des promesses et ne recoivent de réponse qu'après que toutes la page sois exécutées
+
     function checkIfTrue(test) {
         return test !== false
     }
     let allTest = [testCartSet(), testCartAdd(), testCartDelete(), testCartTotal(), testCartDisplay(), testPostItem(), testFetchCollection(), testFetchOne(), testPostCommand()]
 
     let checkAllTest = allTest.every(checkIfTrue);
+
+    console.log("test end")
     return checkAllTest
 
+    // certaines fonctions sont des promesses et ne recoivent de réponse qu'après que toutes la page sois exécutées mais ils affichent déjà un message en cas d'erreur 
 }
 
 

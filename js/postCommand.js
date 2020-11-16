@@ -17,6 +17,7 @@ function postCommand(contact, products) {
     // Envoie à l'API et récupération des datas
     let post = postItem(AppSet.postApi, orderInfo)
     post.then(data => {
+        // Si l'envoie à l'API echoue
         if (data === undefined) {
             return undefined
         }

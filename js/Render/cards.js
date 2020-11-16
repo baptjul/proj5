@@ -1,7 +1,3 @@
-
-/**
- * 
- */
 class Cards {
 
     constructor() {
@@ -11,7 +7,7 @@ class Cards {
     render(object) {
 
         this.dom.innerHTML +=
-        `<div class="col-lg-4 mb-3">
+            `<div class="col-lg-4 mb-3">
                 <div class="card shadow bg-light h-100">
                     <img src="${object.imageUrl}" alt="camera display" class="card-img-top card-img-index">
                     <div class="card-body">

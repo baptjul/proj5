@@ -17,5 +17,5 @@ function order(form) {
     let products = CartSet.getCart()
     // Traitement de la commande (renvoie vrai ou faux)
     return postCommand(contact, products)
-    
+
 }

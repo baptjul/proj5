@@ -195,7 +195,7 @@ abbr[data-original-title] {
   text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
-  text-decoration-skip-ink: none;
+  /*text-decoration-skip-ink: none;*/
 }
 
 address {
@@ -4577,10 +4577,10 @@ input[type=button].btn-block {
     width: 100%;
   }
 }
-
+/*
 .accordion {
-  overflow-anchor: none;
-}
+  overflow-anchor: auto;
+}*/
 .accordion > .card {
   overflow: hidden;
 }
